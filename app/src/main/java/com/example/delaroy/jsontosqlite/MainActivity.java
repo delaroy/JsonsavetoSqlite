@@ -1,35 +1,52 @@
 package com.example.delaroy.jsontosqlite;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+
+import android.app.FragmentTransaction;
+import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
-import com.example.delaroy.jsontosqlite.data.DbContract;
-import com.example.delaroy.jsontosqlite.data.DbHelper;
 
-import org.json.JSONException;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
-    SQLiteDatabase db;
+    private static final String TAG = "MainActivity";
 
-    private DbHelper DbHelper;
-    Cursor cursor;
+    private Boolean exit = false;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DbHelper dbHelper = new DbHelper(this);
 
-
+        Fragment fragment = new MenuFragment();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_frame,fragment);
+        ft.commit();
 
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_search:
+                //onSearchRequested();
+                return true;
+            default:
+                return false;
+        }
+    }
+
 
 }

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">JsontoSqlite</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="empty_widget_list" >No Ingredient Information Available</string>
+    <string name="menu_search">Search</string>
+    <string name="action_settings">settings</string>
 </resources>
