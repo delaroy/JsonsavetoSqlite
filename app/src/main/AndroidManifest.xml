@@ -16,6 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name=".data.MenuProvider"
+            android:authorities="com.example.delaroy.jsontosqlite"
+            android:exported="true" />
+
     </application>
 
 </manifest>
